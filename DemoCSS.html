@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo CSS</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <style>
+        h1{
+            background-color: aliceblue;
+            color: blue;
+        }
+        #p1{
+            color:orange;
+        }
+        body{
+            background-image: url("demo.png");
+            color: aqua;
+        }
+
+
+        /* CSS Outline
+         dotted - Xác định đường viền chấm chấm
+         dashed - Xác định đường viền đứt nét
+         solid - Xác định đường viền chắc chắn
+         double - Xác định đường viền kép
+         groove - Xác định đường viền có rãnh 3D
+         ridge - Xác định đường viền hình chữ nhật 3D
+         inset - Xác định đường viền hình chữ nhật 3D
+         outset - Xác định đường viền hình mở rộng 3D
+         none - Xác định không có phác thảo
+         hidden - Xác định đường viền ẩn
+         */
+        p{
+            outline-color: red;
+        }
+        p.dotted{
+            outline-style: dotted;
+            outline-width: thin; /*Chieu rong outline*/
+        }
+        p.dashed{
+            outline-style: dashed;
+        }
+        p.solid{
+            outline-style: solid;
+        }
+        p.double{
+            outline-style: double;
+        }
+        p.groove{
+            outline-style: groove;
+        }
+        p.ridge{
+            outline-style: ridge;
+        }
+        p.inset{
+            outline-style: inset;
+        }
+        p.outset{
+            outline-style: outset;
+        }
+        /*Mau mac dinh cua outline la den co the viet ngan goi*/
+        p.shorthand{
+            outline: 8px solid red;
+        }
+
+
+        /*CSS TEXT
+        Khi set style màu của body  thì màu đó là màu mặc định trong các thẻ chứa trong body
+        thuộc tính text-align để căn dòng: left,right,center,justify(căn đều hai lề)
+        thuộc tính text-decoration gồm các giá trị: overline(gạch dòng bên trên content),line-through(gạch dong giữa contert),underline(tự hiểu)
+        thuộc tính text-indent: px; dùng để căn lề
+        thuộc tính letter-spacing: px; dùng để căn khoảng cách các chữ cai trong content
+        thuộc tính line-height: 1.5; dùng để căn khoảng cách giữa các dòng
+        thuộc tính text-transform:; với các giá trị uppercase(chữ in hoa),lowercase(chữ in thường),capitalize(chữ viết hoa)
+        thuộc tính direction:rtl; dùng để ghi đè lên hướng văn bản hiện tại dùng thẻ <bdo dir="rtl">content</bdo>
+        thuộc tính word-spacing: px; khoảng cách giữa các chữ
+        thuộc tính text-shadow: px(bóng ngang) px(bóng dọc) red; dùng để trang trí shadow của text
+
+        */
+        p.text{
+            text-align: left;
+            text-decoration: underline;
+            text-indent: 5px;
+            letter-spacing: 4px ;
+            line-height: 1.5;
+            word-spacing: 3px;
+            text-shadow: 3px 4px red;
+            text-transform: capitalize;
+
+        }
+        p.direction{
+            direction: rtl;
+        }
+        /*CSS Font
+        thuộc tính font-family:"Times New Roman",Times,serif;
+        thuộc tính font-style:; với các thuộc tính normal,italic,oblique(xiên rất giống vs nghiêng italic)
+        thuộc tính font-size:; em=pixels/16; 1em = 12pt=16px = 100%. 1vw=1%,1vw=0.5cm
+        thuộc tính font-weight
+        thuộc tính font-variant: small-caps;
+        shorthand font: style px font;
+        */
+        p.font{
+            font-family: "Times New Roman",Times,Serif;
+            font-style: italic;
+            font-size: 20px;
+            font-weight: lighter;
+            font-variant: small-caps;
+        }
+
+
+        /*CSS Links
+          - Style link: color, font-family, background
+          a:link - một liên kết bình thường, không được phép
+          a:visited - liên kết mà người dùng đã truy cập
+          a:hover - một liên kết khi người dùng di chuột qua nó
+          a:active - một liên kết thời điểm nó được nhấp
+          -thuộc tính text-decoration giống text
+          -thuộc tính background color
+          -advance link button
+          a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+          }
+
+          a:hover, a:active {
+            background-color: red;
+          }
+        */
+        /* unvisited link */
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: red;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+
+
+        /*CSS List
+
+        */
+
+
+
+
+    </style>
+    /*CSS Icon
+    Dùng thẻ i để cài đặt icon
+    */
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">/*icon google*/
+</head>
+<body>
+    <h1>Demo heading css</h1>
+    <p id="p1">The paragarph using CSS</p>
+
+    <!--CSS Outline Demo-->
+    <p style="text-align: center">CSS Outline Demo</p>
+    <p class="dotted">Đây là outline kiểu dotted</p>
+    <p class="dashed">Đây là outline kiểu dashed</p>
+    <p class="inset">Đây là outline kiểu inset</p>
+    <p class="shorthand">Day la cach viet outline ngan gon</p>
+
+    <!--CSS text demo-->
+    <p class="text">Demo cac thuoc tinh cua CSS text<br>
+        lam cai xuong dong de xem dieu khac biet
+    </p><br>
+    <p>thuoc tinh doi huong trong CSS text(khi chua sd)</p>
+    <p class="direction"><bdo dir="rtl"> thuoc tinh doi huong trong CSS text</bdo></p>
+
+
+    <!--CSS font demo-->
+    <p>Khi chưa sử dụng các thuộc tính của CSS font<br>
+    </p>
+    <p class="font"> Khi sủ dụng các thuộc tính của CSS font</p>
+
+
+    <!--CSS Icon demo-->
+    <p style="text-align: center;font-size: 20px">Đây là CSS ICON demo</p>
+    <i class="material-icons" style="color: cornflowerblue;">cloud</i>
+    <i class="material-icons">favorite</i>
+    <i class="material-icons">attachment</i>
+    <i class="material-icons">computer</i>
+    <i class="material-icons">traffic</i>
+
+
+    <!--CSS link-->
+    <br>
+    <a href="https://vanhocpham.blogspot.com/" target="_blank">This is link to my blog</a>
+
+</body>
+</html>
