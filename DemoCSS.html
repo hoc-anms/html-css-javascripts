@@ -14,6 +14,7 @@
         }
         body{
             background-image: url("demo.png");
+            background-size: cover;
             color: aqua;
         }
 
@@ -152,17 +153,250 @@
 
 
         /*CSS List
+            thuộc tính list-style-type quy định mục đánh dấu; value:circle,square, upper-roman,lower-alpha
+            thuộc tính list-style-image:url(''); quy định ảnh của mục đánh dấu
+            thuộc tính list-style-position:inside/outside; lòi ra thụt vào
+            shorthand list-style:square inside url("sqpurple.gif"); nếu giá trị trước mất thì giá trị  tiếp thay thế
+        */
+        ul{
 
+            list-style: circle inside ;
+        }
+
+
+        /*CSS Table
+        -thuộc tính border:1px solid black;
+        -thuộc tính border-collapse:collapse;
+        -thuộc tính width,height
+        -thuộc tính text-align:; value(left, right, center) căn trái phải giữa theo  hàng ngang
+        -thuộc tính vertical-align:; value(bottom,top,middle) căn trên dưới theo hàng dọc
+        -padding giống các thuộc tính trước c
+        - th,tr,td:hover{} dùng để set style khi di chuột qua heading hoặc hàng hoặc cột
+        -thuộc tính striped table(bảng sọc) th,tr,td:nth-child(even){}; sọc kẻ theo heading hoặc hàng hoặc cột
+        -thuộc tính responsive table(bảng đáp ứng ) <div style="overflow-x:auto"></div> dùng để tự động căn ngang nếu màn hình quá nhỏ
+        */
+        table{
+            border-collapse: collapse;
+        }
+        table,th,td{
+            border: 1px solid black;
+        }
+
+
+        /*CSS Dispay
+        - Thuộc tính display:; value:
+        - Thuộc tính display:none; vs visibility:hidden;
+        + display:none;  Phần tử sẽ bị ẩn và trang sẽ được hiển thị như thể phần tử không có ở đó
+        + visibility:hidden; phần tử vẫn sẽ chiếm không gian tương tự như trước đây. Phần tử sẽ bị ẩn nhưng vẫn ảnh hưởng đến bố cục
+        */
+        span{
+            display: block;
+        }
+
+
+
+        /*CSS position
+        -position: static; không bị ảnh hưởng bởi các thuộc tính bottom ,top, left, right.
+        -position: relative; điều chỉnh tương đối
+        -position: fixed; phần tử luôn ở địa điểm được cài đặt ngay cả khi cuộn h
+        -position: absolute; vị trí tương đối so với vị trí gần nhất
+        -position: sticky; vị trí dính ngay cả khi scroll page
+        -z-index; phần tử chồng chéo lên một phần tử
+        */
+        p.position{
+            border: blue 2px;
+            position: fixed;
+            top: 600px;
+            right: 0;
+            width: 200px;
+            height: 100px;
+        }
+
+
+
+        /*CSS Overflow
+        overflow
+        visible- Mặc định. Lỗi tràn không được cắt bớt. Nó hiển thị bên ngoài hộp của phần tử
+        hidden - Phần tràn bị cắt bớt và phần còn lại của nội dung sẽ bị ẩn
+        scroll - Luồng tràn bị cắt bớt, nhưng một thanh cuộn được thêm vào để xem phần còn lại của nội dung
+        auto - Nếu tràn được cắt bớt, một thanh cuộn sẽ được thêm vào để xem phần còn lại của nội dung
+        */
+        div.overflow {
+            width: 200px;
+            height: 50px;
+            background-color: olivedrab;
+            overflow: auto;
+        }
+
+
+        /*CSS Combinators
+        bộ chọn con cháu ()
+        bộ chọn con (>)
+        bộ chọn anh chị em liền kề (+)
+        bộ chọn anh chị em chung (~)
+        */
+        #div1 p{
+            color:yellow;
+        }
+
+
+        /*CSS Pseudo-classes(lớp giả)
+           - chú thích đơn giản
+        */
+        #p2{
+            display: none;
+            background-color: yellow;
+            padding: 20px;
+        }
+        #div2:hover #p2{
+            display: block;
+        }
+
+
+        /*CSS Pseudo-elements(phan tu gia trong css)
+        cu phap(syntax)
+        selector::pseudo-element {
+            property:value;
+        }
+        - thuộc tính ::first-line{} dòng đầu
+        - thuộc tính ::fist-letter{} chữ đầu
+        - thuộc tính  ::after/before{content:url(gif.gif);}
+        */
+        #p3::first-line{
+            background-color: orange;
+            color: blue;
+        }
+        #p3::first-letter{
+            background-color: yellow;
+            color: blue;
+        }
+
+
+
+        /*CSS Attribute Selectors-bo chon thuoc tinh trong css
+        - thuộc tính CSS [attribute] Selector ex: a[target]{}; thuộc tính target trong thẻ a sẽ được thay đổi
+        - thuộc tính CSS [attribute="value"] Selector ex: a[target=_blank]{}; thuộc tính target có giá trị blank trong thẻ a sẽ bị thay đổi
+        - thuộc tính [attribute~="value"]chọn được sử dụng để chọn các phần tử có giá trị thuộc tính có chứa một từ được chỉ định.
+        - thuộc tính [attribute|="value"]chọn được sử dụng để chọn các phần tử có thuộc tính được chỉ định bắt đầu bằng giá trị được chỉ định.
+        -thuộc tính [attribute^="value"]chọn được sử dụng để chọn các phần tử có giá trị thuộc tính bắt đầu bằng một giá trị được chỉ định.
+        - thuộc tính [attribute$="value"]chọn được sử dụng để chọn các phần tử có giá trị thuộc tính kết thúc bằng một giá trị được chỉ định.
+        - thuộc tính [attribute*="value"]chọn được sử dụng để chọn các phần tử có giá trị thuộc tính chứa giá trị được chỉ định.
+        */
+        [title *="hello"]{
+            border: 5px solid silver;
+        }
+
+
+        /*CSS Form
+        - Tạo trường nhập: Styling Input Fields sủ dụng thuộc tính width để tạo chiều rộng cho trường nhập
+        input[type=text] - sẽ chỉ chọn các trường văn bản
+        input[type=password] - sẽ chỉ chọn các trường mật khẩu
+        input[type=number] - sẽ chỉ chọn các trường số
+        - Focused Inputs ":focus" để tạo hiệu ứng khi nhập
+        - Input with icon/image use the background-image property and position it with the background-position property.
+        */
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        #div3 {
+            border-radius: 5px;
+            background-color:none;
+            padding: 20px;
+        }
+
+        /*CSS Background
+        - thuộc tính:
+        background-size
+        background-origin
+        background-clip
         */
 
 
+        /*CSS Color advance
+        -RGBA Colors ngoài 3 màu quen thuộc thì thêm màu alpha trong dải từ 0-1.0
+        -HSL Colors:hsl(hue(màu sắc 0-360), saturation(độ bão hòa %), lightness(độ sáng %))
+        -HSLA(tương tự RGBA)
+        -opacity giống pts dải từ 0-1.0
+
+        */
+        #p4{
+            background-color: rgba(0,255,120,0.8);
+            color: red;
+        }
 
 
+
+        /*CSS Gradients:cho phép bạn hiển thị các chuyển tiếp trơn tru giữa hai hoặc nhiều màu được chỉ định.
+        - Linear gradients
+         syntax background: linear-gradient(direction, color-stop1, color-stop2, ...);
+         +Linear Gradient - Top to Bottom (this is default): background: linear-gradient(red, yellow);
+         +Linear Gradient - Left to Right : background: linear-gradient(to right, red , yellow);
+         +Linear Gradient - Diagonal(chéo):  background: linear-gradient(to bottom right, red, yellow);
+         +Using Angles(góc):background: linear-gradient(angle(-90deg), color-stop1, color-stop2);
+         +Using Multiple Color Stops: background: linear-gradient(red, yellow, green);
+         +Using Transparency:background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+         +Repeating a linear-gradient:background: repeating-linear-gradient(red, yellow 10%, green 20%);
+        - Radial gardients
+         syntax background: radial-gradient(shape size at position, start-color, ..., last-color);
+         +Radial Gradient - Evenly Spaced Color Stops (this is default):  background: radial-gradient(red, yellow, green);
+         +Radial Gradient - Differently Spaced Color Stops: background: radial-gradient(red 5%, yellow 15%, green 60%);
+         +Set Shape:background: radial-gradient(circle, red, yellow, green);
+         +Use of Different Size Keywords
+            closest-side :  background: radial-gradient(closest-side at 60% 55%, red, yellow, black);
+            farthest-side
+            closest-corner
+            farthest-corner
+         +Repeating a radial-gradient:background: repeating-radial-gradient(red, yellow 10%, green 15%);
+        */
+
+        /*CSS 2D transform
+        -> syntax
+         -ms-transform:;  vsIE 9
+         -webkit-transform:  vsSafari
+         transform:
+        -Gồm các phương thức:
+        translate() di chuyển phần tử
+        rotate() quay theo chiều kim đồng hồ
+        scale() tăng hoặc giảm kich thước phần tử
+        skewX() làm lệch một góc so với trục x
+        skewY() làm lệch một góc so với trục y
+        matrix() ->matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())
+        */
+        #div4 {
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            background-color: lightblue;
+            border: 1px solid black;
+            transform:skew(20deg,30deg);
+        }
     </style>
-    /*CSS Icon
+    <!--CSS Icon
     Dùng thẻ i để cài đặt icon
-    */
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">/*icon google*/
+    */-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><!--/*icon google*/-->
 </head>
 <body>
     <h1>Demo heading css</h1>
@@ -201,6 +435,106 @@
     <!--CSS link-->
     <br>
     <a href="https://vanhocpham.blogspot.com/" target="_blank">This is link to my blog</a>
+
+
+    <!--CSS list-->
+    <ul>
+        <li>NAME</li>
+        <li>AGE</li>
+        <li>ADDRESS</li>
+    </ul>
+
+    <!--CSS Table demo-->
+    <div style="overflow-x: auto;">
+    <table >
+        <caption>Demo Table CSS</caption>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td>Pham Van A</td>
+            <td>18</td>
+            <td>Ha Noi</td>
+        </tr>
+        <tr>
+            <td>Pham Van A</td>
+            <td>18</td>
+            <td>Ha Noi</td>
+        </tr>
+        <tr>
+            <td>Pham Van A</td>
+            <td>18</td>
+            <td>Ha Noi</td>
+        </tr>
+        <tr>
+            <td>Pham Van A</td>
+            <td>18</td>
+            <td>Ha Noi</td>
+        </tr>
+    </table>
+    </div>
+
+    <!--CSS Display demo-->
+    <span>Day la dau <span></span> va toi la ai</span>
+
+
+    <!--CSS Position-->
+    <p class="position">OK This position demo in CSS</p>
+
+
+    <!--CSS Overflow-->
+    <div class="overflow">Bạn có thể sử dụng thuộc tính tràn khi bạn muốn kiểm soát bố cục tốt hơn. Thuộc tính tràn xác định những gì sẽ xảy ra nếu nội dung tràn vào hộp của một phần tử.</div>
+
+
+    <!--CSS Combinators-->
+    <div id="div1">
+        <p>CSS combinators<br>
+        CSS Combinators</p>
+    </div>
+
+
+    <!--CSS class gia-->
+    <div id="div2">Hiển thị chú thích
+        <p id="p2">Đây là chú thích</p>
+    </div>
+
+    <!--CSS elements gia-->
+    <p id="p3">
+        You can use the ::first-letter pseudo-element to add a special effect<br> to the first character of a text!
+    </p>
+
+    <!--CSS Form-->
+    <h3 style="text-align: center">Using CSS to style an HTML Form</h3>
+
+    <div id="div3">
+        <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    <!--CSS colors advance-->
+    <p id="p4">HAHAHAHAHAHAHA COLOR ADVANCE IS HERE!</p>
+
+    <!--CSS 2D Transform-->
+    <div title="CSS 2D Transform Demo" id="div4" style="background-color: cornflowerblue"></div>
+
+
 
 </body>
 </html>
