@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo JavaScript</title>
+    <!--phần javascript được đặt trong thẻ <head> hoặc thẻ <body> sử dụng thẻ <script>-->
+
+</head>
+<body>
+    <h1 style="text-align: center;background-color: #45a049">Demo web with JavaScripts</h1>
+    <button type="button" onclick="document.write(5+6)" style="background-size: 2000px">Try now!</button>
+    <script> window.alert("Welcome to my website")</script>
+    <p id="demo1"></p>
+    <p>
+        a=1<br>
+        b=5<br>
+        c=a+b<br>
+    </p>
+    <p id="demo2"></p>
+    <h3 >Click to see another</h3>
+    <button type="button" onclick="myFunction1()">Click to open!</button>
+    <h3 id="demo3">HAHAHAHA</h3>
+    <button onmouseout="displayDate()">Date & Time</button>
+    <p id="demo4"></p>
+
+
+    <!--Demo string method-->
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+
+
+    <!--Demo Js sort-->
+    <p>For a arr: arrex=[2,6,9,1,6,8,100,5,9]</p>
+    <p id="demo9"></p>
+    <p id="demo10"></p>
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+    <button type="button" onclick="myFunctionSort()">Sort Object cars</button>
+    <script >
+        /*
+        JavaScript có thể "hiển thị" dữ liệu theo nhiều cách khác nhau:
+            + Viết vào một phần tử HTML, sử dụng innerHTML .
+            + Viết vào đầu ra HTML bằng cách sử dụng document.write () .
+            + Viết vào một hộp cảnh báo, sử dụng window.alert () .
+            + Viết vào bảng điều khiển trình duyệt, sử dụng console.log () .
+        */
+        var a,b,c;
+        a=1;
+        b=5;
+        c=a+b;
+        document.getElementById("demo2").innerHTML="=>c="+c;
+        document.getElementById("demo1").innerHTML=5+6;
+        function myFunction1() {
+            document.getElementById("demo3").innerHTML="Hello this is my firs function in js";
+            
+        }
+        function displayDate() {
+            document.getElementById("demo4").innerHTML=Date();
+
+        }
+
+        /*JS String Method
+        - phương thức .indexOf(""); tìm vị trí đầu tiên chứa kí tự
+        - phương thức .lastIndexof(""); tìm vị trí cuối cùng chưa kí tự
+        - phương thức .indexOf("",15); tìm giá trị từ vị trí n chử đi
+        - phương thức .search("");
+        Extracting String Parts()trích xuất phần của chuỗi
+        - slice(start, end) nếu bắt đầu từ số âm là tính từ phải sang trái
+        - substring(start, end)
+        - substr(start, length)
+
+        -phương thức replace("từ cần thay thế","từ thay thế");để thay thế không phân biệt hoa thường ta dùng replace(//i,"")
+
+        Converting to Upper and Lower Case(chuyển chữ hoa hay chữ thường)
+         - toUpperCase();
+         - toLowerCase()
+
+        - Phương thức nối và thêm chuỗi:.concat("",string);
+        - String.trim () loại bỏ khoảng trắng từ cả hai mặt của một chuỗi.
+        - Phương thức charAt () trả về ký tự tại một chỉ mục (vị trí) được chỉ định trong một chuỗi charAt()=str[pos];(not safe)
+        - Phương thức charCodeAt () trả về unicode của ký tự tại một chỉ mục được chỉ định trong một chuỗi
+        - chuyển đổi chuỗi về mảng dùng phương thức split("");
+        */
+        var str="hello that day is weekend"
+        var idx=str.indexOf("day");
+        var slc=str.slice(6,10);
+        var rpl=str.replace("that","this");
+        var spl=str.split("");
+        var text="";
+        for(var i=0;i<spl.length;i++){
+            text+=spl[i]+"<br>";
+        }
+        document.getElementById("demo5").innerHTML=idx;
+        document.getElementById("demo6").innerHTML=slc;
+        document.getElementById("demo7").innerHTML="repace method:"+str+"->"+rpl;
+        document.getElementById("demo8").innerHTML=text;
+
+
+
+        /*JS array sort*/
+        var arrex=[2,6,9,1,6,8,100,5,9];
+
+        document.getElementById("demo9").innerHTML="Elements highest of array:"+findMax(arrex);
+        document.getElementById("demo10").innerHTML="Array after sorted min to max:"+"arrex=["+arrex.sort(function (a, b) {return a-b;})+"]";
+        document.getElementById("demo11").innerHTML="Array after sorted max to min:"+"arrex=["+arrex.sort(function (a, b) {return b-a;})+"]";
+
+        function findMax(arr) {
+            var max=-Infinity;
+            var len=arr.length;
+            while (len--) {
+                if(max<arr[len]) {
+                    max = arr[len];
+                }
+            }
+            return max;
+        }
+
+        var cars = [
+            {type:"Volvo", year:2016},
+            {type:"Saab", year:2001},
+            {type:"BMW", year:2010}];
+
+        displayCars();
+
+        function myFunctionSort() {
+            cars.sort(function(a, b){return a.year - b.year});
+            displayCars();
+        }
+
+        function displayCars() {
+            document.getElementById("demo12").innerHTML =
+                cars[0].type + " " + cars[0].year + "<br>" +
+                cars[1].type + " " + cars[1].year + "<br>" +
+                cars[2].type + " " + cars[2].year;
+        }
+
+
+        /*JavaScript Array Iteration Methods: phương thức lặp
+        - Phương thức forEach () Gọi một hàm cho mỗi phần tử mảng.
+        - Phương thức map () tạo ra một mảng mới bằng cách thực hiện một hàm trên mỗi phần tử mảng.(+,-,*,/)
+        - Phương thức filter () tạo ra một mảng mới với các phần tử mảng vượt qua một bài kiểm tra.(>,<,>=,<=,=)
+        - Phương thức reduce () chạy một hàm trên mỗi phần tử mảng để tạo ra (giảm nó thành) một giá trị đơn.
+        - Phương thức reduceRight () chạy một hàm trên mỗi phần tử mảng để tạo ra (giảm nó thành) một giá trị đơn.
+        - Phương thức every () kiểm tra xem tất cả các giá trị mảng có vượt qua một thử nghiệm hay không.(trả về true or false)
+        - Phương thức some () kiểm tra nếu một số giá trị mảng vượt qua một thử nghiệm.(trả về true or false)
+
+        */
+    </script>
+
+
+</body>
+</html>
